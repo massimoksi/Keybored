@@ -13,6 +13,8 @@
 		565DE24D1A7D8C69004125C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 565DE24C1A7D8C69004125C2 /* Images.xcassets */; };
 		565DE2501A7D8C69004125C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565DE24E1A7D8C69004125C2 /* LaunchScreen.xib */; };
 		565DE25C1A7D8C69004125C2 /* KeyboredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565DE25B1A7D8C69004125C2 /* KeyboredTests.swift */; };
+		565DE26E1A7D8D0D004125C2 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565DE26D1A7D8D0D004125C2 /* KeyboardViewController.swift */; };
+		565DE2711A7D8D0D004125C2 /* Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 565DE2691A7D8D0D004125C2 /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +25,28 @@
 			remoteGlobalIDString = 565DE23F1A7D8C69004125C2;
 			remoteInfo = Keybored;
 		};
+		565DE26F1A7D8D0D004125C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 565DE2381A7D8C69004125C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 565DE2681A7D8D0D004125C2;
+			remoteInfo = Keyboard;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		565DE2751A7D8D0D004125C2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				565DE2711A7D8D0D004125C2 /* Keyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		565DE2401A7D8C69004125C2 /* Keybored.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keybored.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +59,9 @@
 		565DE2551A7D8C69004125C2 /* KeyboredTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboredTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		565DE25A1A7D8C69004125C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565DE25B1A7D8C69004125C2 /* KeyboredTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboredTests.swift; sourceTree = "<group>"; };
+		565DE2691A7D8D0D004125C2 /* Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		565DE26C1A7D8D0D004125C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		565DE26D1A7D8D0D004125C2 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +79,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		565DE2661A7D8D0D004125C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -61,6 +94,7 @@
 			children = (
 				565DE2421A7D8C69004125C2 /* Keybored */,
 				565DE2581A7D8C69004125C2 /* KeyboredTests */,
+				565DE26A1A7D8D0D004125C2 /* Keyboard */,
 				565DE2411A7D8C69004125C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +104,7 @@
 			children = (
 				565DE2401A7D8C69004125C2 /* Keybored.app */,
 				565DE2551A7D8C69004125C2 /* KeyboredTests.xctest */,
+				565DE2691A7D8D0D004125C2 /* Keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,11 +112,11 @@
 		565DE2421A7D8C69004125C2 /* Keybored */ = {
 			isa = PBXGroup;
 			children = (
-				565DE2451A7D8C69004125C2 /* AppDelegate.swift */,
-				565DE2471A7D8C69004125C2 /* ViewController.swift */,
+				565DE24E1A7D8C69004125C2 /* LaunchScreen.xib */,
 				565DE2491A7D8C69004125C2 /* Main.storyboard */,
 				565DE24C1A7D8C69004125C2 /* Images.xcassets */,
-				565DE24E1A7D8C69004125C2 /* LaunchScreen.xib */,
+				565DE2451A7D8C69004125C2 /* AppDelegate.swift */,
+				565DE2471A7D8C69004125C2 /* ViewController.swift */,
 				565DE2431A7D8C69004125C2 /* Supporting Files */,
 			);
 			path = Keybored;
@@ -112,6 +147,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		565DE26A1A7D8D0D004125C2 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				565DE26D1A7D8D0D004125C2 /* KeyboardViewController.swift */,
+				565DE26B1A7D8D0D004125C2 /* Supporting Files */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		565DE26B1A7D8D0D004125C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				565DE26C1A7D8D0D004125C2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +174,12 @@
 				565DE23C1A7D8C69004125C2 /* Sources */,
 				565DE23D1A7D8C69004125C2 /* Frameworks */,
 				565DE23E1A7D8C69004125C2 /* Resources */,
+				565DE2751A7D8D0D004125C2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				565DE2701A7D8D0D004125C2 /* PBXTargetDependency */,
 			);
 			name = Keybored;
 			productName = Keybored;
@@ -150,6 +204,23 @@
 			productReference = 565DE2551A7D8C69004125C2 /* KeyboredTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		565DE2681A7D8D0D004125C2 /* Keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 565DE2721A7D8D0D004125C2 /* Build configuration list for PBXNativeTarget "Keyboard" */;
+			buildPhases = (
+				565DE2651A7D8D0D004125C2 /* Sources */,
+				565DE2661A7D8D0D004125C2 /* Frameworks */,
+				565DE2671A7D8D0D004125C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Keyboard;
+			productName = Keyboard;
+			productReference = 565DE2691A7D8D0D004125C2 /* Keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +236,9 @@
 					565DE2541A7D8C69004125C2 = {
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = 565DE23F1A7D8C69004125C2;
+					};
+					565DE2681A7D8D0D004125C2 = {
+						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
 			};
@@ -183,6 +257,7 @@
 			targets = (
 				565DE23F1A7D8C69004125C2 /* Keybored */,
 				565DE2541A7D8C69004125C2 /* KeyboredTests */,
+				565DE2681A7D8D0D004125C2 /* Keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -199,6 +274,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		565DE2531A7D8C69004125C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		565DE2671A7D8D0D004125C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,6 +307,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		565DE2651A7D8D0D004125C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				565DE26E1A7D8D0D004125C2 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +322,11 @@
 			isa = PBXTargetDependency;
 			target = 565DE23F1A7D8C69004125C2 /* Keybored */;
 			targetProxy = 565DE2561A7D8C69004125C2 /* PBXContainerItemProxy */;
+		};
+		565DE2701A7D8D0D004125C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 565DE2681A7D8D0D004125C2 /* Keyboard */;
+			targetProxy = 565DE26F1A7D8D0D004125C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -338,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Keybored/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -348,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Keybored/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,6 +485,30 @@
 			};
 			name = Release;
 		};
+		565DE2731A7D8D0D004125C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Keyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		565DE2741A7D8D0D004125C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Keyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -413,6 +534,14 @@
 			buildConfigurations = (
 				565DE2631A7D8C69004125C2 /* Debug */,
 				565DE2641A7D8C69004125C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		565DE2721A7D8D0D004125C2 /* Build configuration list for PBXNativeTarget "Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				565DE2731A7D8D0D004125C2 /* Debug */,
+				565DE2741A7D8D0D004125C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
