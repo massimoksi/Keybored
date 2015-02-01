@@ -17,6 +17,10 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet var surnameKeyboardButton: UIButton!
     @IBOutlet var mailKeyboardButton: UIButton!
 
+    var name: String?
+    var surname: String?
+    var mail: String?
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
     
@@ -26,6 +30,12 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        // Retrieve settings from user defaults.
+        let userDefaults = NSUserDefaults(suiteName: "group.com.gmail.massimoperi.ios.Keybored")
+        self.name = userDefaults?.stringForKey("Name")
+        self.surname = userDefaults?.stringForKey("Surname")
+        self.mail = userDefaults?.stringForKey("Mail")
+        
         // Name keyboard button.
         self.nameKeyboardButton = UIButton.buttonWithType(.System) as UIButton
         self.nameKeyboardButton.setTitle(NSLocalizedString("Name", comment: ""), forState: .Normal)
@@ -158,19 +168,29 @@ class KeyboardViewController: UIInputViewController {
     // MARK: - Actions
 
     @IBAction func addName(sender: UIButton) {
-        // TODO: implement.
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if let name = self.name {
+            proxy.insertText(name)
+        }
     }
     
     @IBAction func addSurname(sender: UIButton) {
-        // TODO: implement.
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if let surname = self.surname {
+            proxy.insertText(surname)
+        }
     }
     
     @IBAction func addMail(sender: UIButton) {
-        // TODO: implement.
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        if let mail = self.mail {
+            proxy.insertText(mail)
+        }
     }
 
     @IBAction func backspace(sender: UIButton) {
-        // TODO: implement.
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        proxy.deleteBackward()
     }
     
 }

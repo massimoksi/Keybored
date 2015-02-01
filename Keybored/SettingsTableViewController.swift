@@ -19,10 +19,10 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        self.nameTextField.text = userDefaults.stringForKey("Name")
-        self.surnameTextField.text = userDefaults.stringForKey("Surname")
-        self.mailTextField.text = userDefaults.stringForKey("Mail")
+        let userDefaults = NSUserDefaults(suiteName: "group.com.gmail.massimoperi.ios.Keybored")
+        self.nameTextField.text = userDefaults?.stringForKey("Name")
+        self.surnameTextField.text = userDefaults?.stringForKey("Surname")
+        self.mailTextField.text = userDefaults?.stringForKey("Mail")
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,18 +43,18 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Text field delegate
     
     func textFieldDidEndEditing(textField: UITextField) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = NSUserDefaults(suiteName: "group.com.gmail.massimoperi.ios.Keybored")
         let text = textField.text
         
         switch (textField.tag) {
         case 1:
-            userDefaults.setObject(text, forKey: "Name")
+            userDefaults?.setObject(text, forKey: "Name")
             
         case 2:
-            userDefaults.setObject(text, forKey: "Surname")
+            userDefaults?.setObject(text, forKey: "Surname")
         
         case 3:
-            userDefaults.setObject(text, forKey: "Mail")
+            userDefaults?.setObject(text, forKey: "Mail")
             
         default:
             break
