@@ -29,7 +29,7 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         // Retrieve settings from user defaults.
         let userDefaults = NSUserDefaults(suiteName: "group.com.gmail.massimoperi.ios.Keybored")
         self.name = userDefaults?.stringForKey("Name")
@@ -41,11 +41,9 @@ class KeyboardViewController: UIInputViewController {
         self.nameKeyboardButton.setTitle(NSLocalizedString("Name", comment: ""), forState: .Normal)
         self.nameKeyboardButton.titleLabel?.font = UIFont.systemFontOfSize(21.0)
         self.nameKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.nameKeyboardButton.backgroundColor = UIColor(white: 1.0, alpha: 0.4)
         self.nameKeyboardButton.layer.cornerRadius = 5.0
-        self.nameKeyboardButton.layer.shadowColor = UIColor.blackColor().CGColor
-        self.nameKeyboardButton.layer.shadowOpacity = 0.8
-        self.nameKeyboardButton.layer.shadowRadius = 1.0
+        self.nameKeyboardButton.layer.shadowOpacity = 1.0
+        self.nameKeyboardButton.layer.shadowRadius = 0.0
         self.nameKeyboardButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         self.nameKeyboardButton.addTarget(self, action: "addName:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.nameKeyboardButton)
@@ -62,11 +60,9 @@ class KeyboardViewController: UIInputViewController {
         self.surnameKeyboardButton.setTitle(NSLocalizedString("Surname", comment: ""), forState: .Normal)
         self.surnameKeyboardButton.titleLabel?.font = UIFont.systemFontOfSize(21.0)
         self.surnameKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.surnameKeyboardButton.backgroundColor = UIColor(white: 1.0, alpha: 0.4)
         self.surnameKeyboardButton.layer.cornerRadius = 5.0
-        self.surnameKeyboardButton.layer.shadowColor = UIColor.blackColor().CGColor
-        self.surnameKeyboardButton.layer.shadowOpacity = 0.8
-        self.surnameKeyboardButton.layer.shadowRadius = 1.0
+        self.surnameKeyboardButton.layer.shadowOpacity = 1.0
+        self.surnameKeyboardButton.layer.shadowRadius = 0.0
         self.surnameKeyboardButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         self.surnameKeyboardButton.addTarget(self, action: "addSurname:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.surnameKeyboardButton)
@@ -83,11 +79,9 @@ class KeyboardViewController: UIInputViewController {
         self.mailKeyboardButton.setTitle(NSLocalizedString("Mail address", comment: ""), forState: .Normal)
         self.mailKeyboardButton.titleLabel?.font = UIFont.systemFontOfSize(21.0)
         self.mailKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.mailKeyboardButton.backgroundColor = UIColor(white: 1.0, alpha: 0.4)
         self.mailKeyboardButton.layer.cornerRadius = 5.0
-        self.mailKeyboardButton.layer.shadowColor = UIColor.blackColor().CGColor
-        self.mailKeyboardButton.layer.shadowOpacity = 0.8
-        self.mailKeyboardButton.layer.shadowRadius = 1.0
+        self.mailKeyboardButton.layer.shadowOpacity = 1.0
+        self.mailKeyboardButton.layer.shadowRadius = 0.0
         self.mailKeyboardButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         self.mailKeyboardButton.addTarget(self, action: "addMail:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.mailKeyboardButton)
@@ -103,11 +97,9 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton = UIButton.buttonWithType(.System) as UIButton
         self.nextKeyboardButton.setImage(UIImage(named: "Next"), forState: .Normal)
         self.nextKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.nextKeyboardButton.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
         self.nextKeyboardButton.layer.cornerRadius = 5.0
-        self.nextKeyboardButton.layer.shadowColor = UIColor.blackColor().CGColor
-        self.nextKeyboardButton.layer.shadowOpacity = 0.8
-        self.nextKeyboardButton.layer.shadowRadius = 1.0
+        self.nextKeyboardButton.layer.shadowOpacity = 1.0
+        self.nextKeyboardButton.layer.shadowRadius = 0.0
         self.nextKeyboardButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         self.nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.nextKeyboardButton)
@@ -122,11 +114,9 @@ class KeyboardViewController: UIInputViewController {
         self.deleteKeyboardButton = UIButton.buttonWithType(.System) as UIButton
         self.deleteKeyboardButton.setImage(UIImage(named: "Delete"), forState: .Normal)
         self.deleteKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.deleteKeyboardButton.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
         self.deleteKeyboardButton.layer.cornerRadius = 5.0
-        self.deleteKeyboardButton.layer.shadowColor = UIColor.blackColor().CGColor
-        self.deleteKeyboardButton.layer.shadowOpacity = 0.8
-        self.deleteKeyboardButton.layer.shadowRadius = 1.0
+        self.deleteKeyboardButton.layer.shadowOpacity = 1.0
+        self.deleteKeyboardButton.layer.shadowRadius = 0.0
         self.deleteKeyboardButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         deleteKeyboardButton.addTarget(self, action: "backspace:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.deleteKeyboardButton)
@@ -138,6 +128,14 @@ class KeyboardViewController: UIInputViewController {
         self.view.addConstraints([deleteKeyboardButtonWidthConstraint, deleteKeyboardButtonHeightConstraint, deleteKeyboardButtonRightSideConstraint, deleteKeyboardButtonBottomConstraint])
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.nameKeyboardButton.enabled = (self.name != nil) ? true : false
+        self.surnameKeyboardButton.enabled = (self.surname != nil) ? true : false
+        self.mailKeyboardButton.enabled = (self.mail != nil) ? true : false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
@@ -149,20 +147,50 @@ class KeyboardViewController: UIInputViewController {
 
     override func textDidChange(textInput: UITextInput) {
         // The app has just changed the document's contents, the document context has been updated.
-    
-        var textColor: UIColor
+        var normalTextColor: UIColor
+        var disabledTextColor: UIColor
+        var backgroundColor: UIColor
+        var accessoryBackgroundColor: UIColor
+        var shadowColor: UIColor
+        
+        // Customize buttons depending on keyboard appearance.
         var proxy = self.textDocumentProxy as UITextDocumentProxy
         if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
-            textColor = UIColor.whiteColor()
+            normalTextColor = UIColor.whiteColor()
+            disabledTextColor = UIColor(white: 1.0, alpha: 0.4)
+            backgroundColor = UIColor(white: 0.0, alpha: 0.2)
+            accessoryBackgroundColor = UIColor(white: 1.0, alpha: 0.2)
+            shadowColor = UIColor.blackColor()
         } else {
-            textColor = UIColor.blackColor()
+            normalTextColor = UIColor.blackColor()
+            disabledTextColor = UIColor(white: 0.0, alpha: 0.2)
+            backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+            accessoryBackgroundColor = UIColor(red: 171.0/255.0, green: 181.0/255.0, blue: 190.0/255.0, alpha: 1.0)
+            shadowColor = UIColor(red: 136.0/255.0, green: 139.0/255.0, blue: 143.0/255.0, alpha: 1.0)
         }
         
-        self.nameKeyboardButton.setTitleColor(textColor, forState: .Normal)
-        self.surnameKeyboardButton.setTitleColor(textColor, forState: .Normal)
-        self.mailKeyboardButton.setTitleColor(textColor, forState: .Normal)
-        self.nextKeyboardButton.tintColor = textColor
-        self.deleteKeyboardButton.tintColor = textColor
+        self.nameKeyboardButton.setTitleColor(normalTextColor, forState: .Normal)
+        self.nameKeyboardButton.setTitleColor(disabledTextColor, forState: .Disabled)
+        self.nameKeyboardButton.backgroundColor = backgroundColor
+        self.nameKeyboardButton.layer.shadowColor = shadowColor.CGColor
+        
+        self.surnameKeyboardButton.setTitleColor(normalTextColor, forState: .Normal)
+        self.surnameKeyboardButton.setTitleColor(disabledTextColor, forState: .Disabled)
+        self.surnameKeyboardButton.backgroundColor = backgroundColor
+        self.surnameKeyboardButton.layer.shadowColor = shadowColor.CGColor
+        
+        self.mailKeyboardButton.setTitleColor(normalTextColor, forState: .Normal)
+        self.mailKeyboardButton.setTitleColor(disabledTextColor, forState: .Disabled)
+        self.mailKeyboardButton.backgroundColor = backgroundColor
+        self.mailKeyboardButton.layer.shadowColor = shadowColor.CGColor
+        
+        self.nextKeyboardButton.tintColor = normalTextColor
+        self.nextKeyboardButton.backgroundColor = accessoryBackgroundColor
+        self.nextKeyboardButton.layer.shadowColor = shadowColor.CGColor
+        
+        self.deleteKeyboardButton.tintColor = normalTextColor
+        self.deleteKeyboardButton.backgroundColor = accessoryBackgroundColor
+        self.deleteKeyboardButton.layer.shadowColor = shadowColor.CGColor
     }
     
     // MARK: - Actions
