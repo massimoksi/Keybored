@@ -4,6 +4,10 @@ A custom keyboard for iOS8, to quickly type boring recurring pieces of informati
 
 ## Installation
 
+Build and install the companion Keybored app on your device.
+After installing, go to *Settings > General > Keyboard > Add New Keyboard* and select *Keybored*.
+After adding, tap the newly added Keybored keyboard and toggle the switch to *Allow Full Access*.
+
 ## Usage
 
 Fill your details inside the companion Keybored app.
