@@ -21,6 +21,9 @@ class KeyboardViewController: UIInputViewController {
     var surname: String?
     var mail: String?
     
+    var buttonHeightConstraints: [NSLayoutConstraint]?
+    var buttonSpacingConstraints: [NSLayoutConstraint]?
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
     
@@ -29,7 +32,7 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Retrieve settings from user defaults.
         let userDefaults = NSUserDefaults(suiteName: "group.com.gmail.massimoperi.ios.Keybored")
         self.name = userDefaults?.stringForKey("Name")
@@ -48,13 +51,6 @@ class KeyboardViewController: UIInputViewController {
         self.nameKeyboardButton.addTarget(self, action: "addName:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.nameKeyboardButton)
         
-        var nameKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1.0, constant: -8.0)
-        nameKeyboardButtonWidthConstraint.priority = 999
-        var nameKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
-        var nameKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
-        var nameKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 12.0)
-        self.view.addConstraints([nameKeyboardButtonWidthConstraint, nameKeyboardButtonHeightConstraint, nameKeyboardButtonLeftSideConstraint, nameKeyboardButtonTopConstraint])
-
         // Surname keyboard button.
         self.surnameKeyboardButton = UIButton.buttonWithType(.System) as UIButton
         self.surnameKeyboardButton.setTitle(NSLocalizedString("Surname", comment: ""), forState: .Normal)
@@ -67,13 +63,6 @@ class KeyboardViewController: UIInputViewController {
         self.surnameKeyboardButton.addTarget(self, action: "addSurname:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.surnameKeyboardButton)
         
-        var surnameKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1.0, constant: -8.0)
-        surnameKeyboardButtonWidthConstraint.priority = 999
-        var surnameKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
-        var surnameKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
-        var surnameKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.nameKeyboardButton, attribute: .Bottom, multiplier: 1.0, constant: 12.0)
-        self.view.addConstraints([surnameKeyboardButtonWidthConstraint, surnameKeyboardButtonHeightConstraint, surnameKeyboardButtonLeftSideConstraint, surnameKeyboardButtonTopConstraint])
-
         // Mail keyboard button.
         self.mailKeyboardButton = UIButton.buttonWithType(.System) as UIButton
         self.mailKeyboardButton.setTitle(NSLocalizedString("Mail address", comment: ""), forState: .Normal)
@@ -86,13 +75,6 @@ class KeyboardViewController: UIInputViewController {
         self.mailKeyboardButton.addTarget(self, action: "addMail:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.mailKeyboardButton)
         
-        var mailKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1.0, constant: -8.0)
-        mailKeyboardButtonWidthConstraint.priority = 999
-        var mailKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
-        var mailKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
-        var mailKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.surnameKeyboardButton, attribute: .Bottom, multiplier: 1.0, constant: 12.0)
-        self.view.addConstraints([mailKeyboardButtonWidthConstraint, mailKeyboardButtonHeightConstraint, mailKeyboardButtonLeftSideConstraint, mailKeyboardButtonTopConstraint])
-        
         // Next keyboard button.
         self.nextKeyboardButton = UIButton.buttonWithType(.System) as UIButton
         self.nextKeyboardButton.setImage(UIImage(named: "Next"), forState: .Normal)
@@ -103,12 +85,6 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         self.nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.nextKeyboardButton)
-
-        var nextKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 42.0)
-        var nextKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
-        var nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
-        var nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: -4.0)
-        self.view.addConstraints([nextKeyboardButtonWidthConstraint, nextKeyboardButtonHeightConstraint, nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
         
         // Delete keyboard button.
         self.deleteKeyboardButton = UIButton.buttonWithType(.System) as UIButton
@@ -120,12 +96,8 @@ class KeyboardViewController: UIInputViewController {
         self.deleteKeyboardButton.layer.shadowOffset = CGSizeMake(0.0, 1.0)
         deleteKeyboardButton.addTarget(self, action: "backspace:", forControlEvents: .TouchUpInside)
         self.view.addSubview(self.deleteKeyboardButton)
-        
-        var deleteKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 42.0)
-        var deleteKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
-        var deleteKeyboardButtonRightSideConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: -4.0)
-        var deleteKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: -4.0)
-        self.view.addConstraints([deleteKeyboardButtonWidthConstraint, deleteKeyboardButtonHeightConstraint, deleteKeyboardButtonRightSideConstraint, deleteKeyboardButtonBottomConstraint])
+
+        self.setupConstraints()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -193,6 +165,47 @@ class KeyboardViewController: UIInputViewController {
         self.deleteKeyboardButton.layer.shadowColor = shadowColor.CGColor
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let heightConstraints = self.buttonHeightConstraints {
+            self.view.removeConstraints(heightConstraints)
+        }
+        if let spacingConstraints = self.buttonSpacingConstraints {
+            self.view.removeConstraints(spacingConstraints)
+        }
+
+        if ((UIDevice.currentDevice().userInterfaceIdiom == .Phone) && (UIScreen.mainScreen().bounds.size.width > UIScreen.mainScreen().bounds.size.height)) {
+            var nameKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 30.0)
+            var surnameKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 30.0)
+            var mailKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 30.0)
+            var nextKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 30.0)
+            var deleteKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 30.0)
+            self.buttonHeightConstraints = [nameKeyboardButtonHeightConstraint, surnameKeyboardButtonHeightConstraint, mailKeyboardButtonHeightConstraint, nextKeyboardButtonHeightConstraint, deleteKeyboardButtonHeightConstraint]
+            
+            var nameKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 8.0)
+            var surnameKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.nameKeyboardButton, attribute: .Bottom, multiplier: 1.0, constant: 8.0)
+            var mailKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.surnameKeyboardButton, attribute: .Bottom, multiplier: 1.0, constant: 8.0)
+            self.buttonSpacingConstraints = [nameKeyboardButtonTopConstraint, surnameKeyboardButtonTopConstraint, mailKeyboardButtonTopConstraint]
+        }
+        else {
+            var nameKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
+            var surnameKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
+            var mailKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
+            var nextKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
+            var deleteKeyboardButtonHeightConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 41.0)
+            self.buttonHeightConstraints = [nameKeyboardButtonHeightConstraint, surnameKeyboardButtonHeightConstraint, mailKeyboardButtonHeightConstraint, nextKeyboardButtonHeightConstraint, deleteKeyboardButtonHeightConstraint]
+            
+            var nameKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 12.0)
+            var surnameKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.nameKeyboardButton, attribute: .Bottom, multiplier: 1.0, constant: 12.0)
+            var mailKeyboardButtonTopConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Top, relatedBy: .Equal, toItem: self.surnameKeyboardButton, attribute: .Bottom, multiplier: 1.0, constant: 12.0)
+            self.buttonSpacingConstraints = [nameKeyboardButtonTopConstraint, surnameKeyboardButtonTopConstraint, mailKeyboardButtonTopConstraint]
+        }
+
+        self.view.addConstraints(self.buttonHeightConstraints!)
+        self.view.addConstraints(self.buttonSpacingConstraints!)
+    }
+    
     // MARK: - Actions
 
     @IBAction func addName(sender: UIButton) {
@@ -219,6 +232,35 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func backspace(sender: UIButton) {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         proxy.deleteBackward()
+    }
+    
+    // MARK: - Private functions
+    
+    private func setupConstraints() {
+        var nameKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1.0, constant: -8.0)
+        nameKeyboardButtonWidthConstraint.priority = 999
+        var nameKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nameKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
+        self.view.addConstraints([nameKeyboardButtonWidthConstraint, nameKeyboardButtonLeftSideConstraint])
+        
+        var surnameKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1.0, constant: -8.0)
+        surnameKeyboardButtonWidthConstraint.priority = 999
+        var surnameKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.surnameKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
+        self.view.addConstraints([surnameKeyboardButtonWidthConstraint, surnameKeyboardButtonLeftSideConstraint])
+        
+        var mailKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: self.view, attribute: .Width, multiplier: 1.0, constant: -8.0)
+        mailKeyboardButtonWidthConstraint.priority = 999
+        var mailKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.mailKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
+        self.view.addConstraints([mailKeyboardButtonWidthConstraint, mailKeyboardButtonLeftSideConstraint])
+        
+        var nextKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 42.0)
+        var nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 4.0)
+        var nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: -4.0)
+        self.view.addConstraints([nextKeyboardButtonWidthConstraint, nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
+        
+        var deleteKeyboardButtonWidthConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 42.0)
+        var deleteKeyboardButtonRightSideConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: -4.0)
+        var deleteKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.deleteKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: -4.0)
+        self.view.addConstraints([deleteKeyboardButtonWidthConstraint, deleteKeyboardButtonRightSideConstraint, deleteKeyboardButtonBottomConstraint])
     }
     
 }
