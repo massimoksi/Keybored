@@ -6,6 +6,8 @@ A custom keyboard for iOS8, to quickly type boring recurring pieces of informati
 
 ## Usage
 
+Fill your details inside the companion Keybored app.
+
 ## Changelog
 
 ### 0.0.1
