@@ -80,7 +80,7 @@ class KeyboardViewController: UIInputViewController {
         
         // Mail button.
         self.mailButton = UIButton.buttonWithType(.System) as UIButton
-        self.mailButton.setTitle(NSLocalizedString("Mail address", comment: ""), forState: .Normal)
+        self.mailButton.setTitle(NSLocalizedString("E-mail", comment: ""), forState: .Normal)
         self.mailButton.titleLabel?.font = UIFont.systemFontOfSize(21.0)
         self.mailButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.mailButton.layer.cornerRadius = 5.0

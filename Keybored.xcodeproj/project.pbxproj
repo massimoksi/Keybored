@@ -50,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		563E13851A82E41200864623 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		565DE2401A7D8C69004125C2 /* Keybored.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keybored.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		565DE2441A7D8C69004125C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565DE2451A7D8C69004125C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = 565DE2371A7D8C69004125C2;
 			productRefGroup = 565DE2411A7D8C69004125C2 /* Products */;
@@ -355,6 +357,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				565DE24A1A7D8C69004125C2 /* Base */,
+				563E13851A82E41200864623 /* it */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

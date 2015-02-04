@@ -1,0 +1,9 @@
+
+/* Class = "IBUILabel"; text = "Surname"; ObjectID = "IIG-Rl-5ZM"; */
+"IIG-Rl-5ZM.text" = "Cognome";
+
+/* Class = "IBUILabel"; text = "Name"; ObjectID = "oJv-XF-LTa"; */
+"oJv-XF-LTa.text" = "Nome";
+
+/* Class = "IBUILabel"; text = "E-mail"; ObjectID = "raa-6u-yLY"; */
+"raa-6u-yLY.text" = "E-mail";
