@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ta7-Rh-gt8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="85S-VQ-Y5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Settings Table View Controller-->
+        <!--Keybored-->
         <scene sceneID="yaT-hb-ufl">
             <objects>
                 <tableViewController id="Ta7-Rh-gt8" customClass="SettingsTableViewController" customModule="Keybored" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,6 +135,7 @@
                             <outlet property="delegate" destination="Ta7-Rh-gt8" id="Ndt-Bv-A2d"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Keybored" id="cfh-PN-KnF"/>
                     <connections>
                         <outlet property="mailTextField" destination="XPy-TG-XHe" id="VX6-Ji-LIq"/>
                         <outlet property="nameTextField" destination="kMi-Pi-MtI" id="HIh-qB-Mla"/>
@@ -144,6 +145,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2n-Ev-Trg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="521" y="502"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hcv-d7-Ihp">
+            <objects>
+                <navigationController id="85S-VQ-Y5E" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OBn-FZ-cOk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.47843137383460999" green="0.71764707565307617" blue="0.57647061347961426" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ta7-Rh-gt8" kind="relationship" relationship="rootViewController" id="5RV-pK-boE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTQ-Vc-dU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-191" y="502"/>
         </scene>
     </scenes>
 </document>
