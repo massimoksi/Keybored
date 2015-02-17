@@ -1,4 +1,4 @@
-# Keybored
+# ![Keybored](Others/logo_120.png) Keybored
 
 A custom keyboard for iOS8, to quickly type boring recurring pieces of information such as name, surname and e-mail address.
 
@@ -12,7 +12,7 @@ After adding, tap the newly added Keybored keyboard and toggle the switch to **A
 
 ## Usage
 
-Fill your details inside the companion Keybored app.
+Fill your details inside the Keybored companion app.
 
 ## Changelog
 
@@ -22,6 +22,10 @@ Fill your details inside the companion Keybored app.
 ### 0.0.2
 - Added space button.
 - Added Italian localization for the containing app.
+
+### 0.0.3
+- Added app icon.
+- Added launch screen.
 
 ## Contact
 
