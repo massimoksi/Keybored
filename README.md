@@ -2,6 +2,8 @@
 
 A custom keyboard for iOS8, to quickly type boring recurring pieces of information such as name, surname and e-mail address.
 
+![Keyboard screenshot](Screenshot_Keyboard.png)
+
 ## Installation
 
 Build and install the companion Keybored app on your device.
@@ -13,6 +15,8 @@ After adding, tap the newly added Keybored keyboard and toggle the switch to **A
 ## Usage
 
 Fill your details inside the Keybored companion app.
+
+![Keybored screenshot](Others/Screenshot_Keybored.png )
 
 ## Changelog
 
