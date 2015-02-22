@@ -2,7 +2,7 @@
 
 A custom keyboard for iOS8, to quickly type boring recurring pieces of information such as name, surname and e-mail address.
 
-![Keyboard screenshot](Screenshot_Keyboard.png)
+![Keyboard screenshot](Others/Screenshot_Keyboard.png)
 
 ## Installation
 
